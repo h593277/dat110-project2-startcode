@@ -37,6 +37,11 @@ public class PublishMsg extends Message {
 	public String toString() {
 		return "PublishMsg [topic=" + topic + ", toString()=" + super.toString() + "]";
 	}
+
+
+	public String getMessage() {
+		return message;
+	}
 	
 	
 }

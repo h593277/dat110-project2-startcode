@@ -20,7 +20,10 @@ public class DisplayDevice {
 		
 		session.subscribe(Common.TEMPTOPIC);
 		
-		session.receive();
+		for(int i = 0; i < COUNT; i++)
+		{
+			session.receive();
+		}
 		
 		session.unsubscribe(Common.TEMPTOPIC);
 		

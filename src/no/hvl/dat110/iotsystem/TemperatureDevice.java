@@ -18,7 +18,10 @@ public class TemperatureDevice {
 		
 		Client session = new Client("sensor", Common.BROKERHOST, Common.BROKERPORT);
 		
-		session.publish(Common.TEMPTOPIC, String.valueOf(sn.read()));
+		for(int i = 0; i < COUNT; i++)
+		{
+			session.publish(Common.TEMPTOPIC, String.valueOf(sn.read()));
+		}
 		
 		session.disconnect();
 
