@@ -86,18 +86,27 @@ public class Storage {
 	public void addSubscriber(String user, String topic) {
 
 		// TODO: add the user as subscriber to the topic
-		
-		Set<String> subs = subscriptions.get(topic);
+		Set<String> subs = new HashSet<String>();
+		if(subscriptions.get(topic) != null)
+		{
+			subs = subscriptions.get(topic);
+		}
 		subs.add(user);
+		subscriptions.put(topic, subs);
 		
 	}
 
 	public void removeSubscriber(String user, String topic) {
 
 		// TODO: remove the user as subscriber to the topic
+		Set<String> subs = new HashSet<String>();
+		if(subscriptions.get(topic) != null)
+		{
+			subs = subscriptions.get(topic);
+			subs.remove(user);
+			subscriptions.put(topic, subs);
+		}
 		
-		Set<String> subs = subscriptions.get(topic);
-		subs.remove(user);
 		
 	}
 }

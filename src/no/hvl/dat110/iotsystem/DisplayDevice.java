@@ -15,6 +15,7 @@ public class DisplayDevice {
 		
 		Client session = new Client("display", Common.BROKERHOST, Common.BROKERPORT);
 		
+		session.connect();
 		
 		session.createTopic(Common.TEMPTOPIC);
 		
