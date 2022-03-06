@@ -1,7 +1,6 @@
 package no.hvl.dat110.broker;
 
 import java.util.Set;
-import java.util.concurrent.ConcurrentHashMap;
 import java.util.Collection;
 import no.hvl.dat110.common.Logger;
 import no.hvl.dat110.common.Stopable;
@@ -113,9 +112,6 @@ public class Dispatcher extends Stopable {
 		
 		storage.createTopic(topic);
 
-		// TODO: create the topic in the broker storage
-		// the topic is contained in the create topic message
-
 	}
 
 	public void onDeleteTopic(DeleteTopicMsg msg) {
@@ -126,8 +122,6 @@ public class Dispatcher extends Stopable {
 		
 		storage.deleteTopic(topic);
 
-		// TODO: delete the topic from the broker storage
-		// the topic is contained in the delete topic message
 		
 	}
 
@@ -140,8 +134,6 @@ public class Dispatcher extends Stopable {
 		
 		storage.addSubscriber(user, topic);
 
-		// TODO: subscribe user to the topic
-		// user and topic is contained in the subscribe message
 
 	}
 
@@ -153,9 +145,6 @@ public class Dispatcher extends Stopable {
 		String topic = msg.getTopic();
 		
 		storage.removeSubscriber(user, topic);
-
-		// TODO: unsubscribe user to the topic
-		// user and topic is contained in the unsubscribe message
 		
 	}
 
@@ -173,11 +162,10 @@ public class Dispatcher extends Stopable {
 			{
 				storage.getSession(s).send(msg);
 			}
+			
 		}
-
-		// TODO: publish the message to clients subscribed to the topic
-		// topic and message is contained in the subscribe message
-		// messages must be sent using the corresponding client session objects
+		
+		
 
 	}
 }

@@ -1,18 +1,10 @@
 package no.hvl.dat110.messages;
 
 public class SubscribeMsg extends Message {
-
-	// message sent from client to subscribe on a topic 
-
-	// TODO:
-	// Implement object variables - a topic is required
-
-	// Constructor, get/set-methods, and toString method
-	// as described in the project text
 	
 	private String topic;
 
-	public SubscribeMsg(String topic, String user) {
+	public SubscribeMsg(String user, String topic) {
 		super(MessageType.SUBSCRIBE, user);
 		this.topic = topic;
 	}
